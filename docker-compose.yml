@@ -8,5 +8,5 @@ services:
       - ./data/logs/:/opt/rapid7/collector/logs/
       - ./data/felix-cache/:/opt/rapid7/collector/felix-cache/
       - ./data/data/spillover-directory/:/opt/rapid7/collector/spillover-directory
-  network_mode: "host"
-  restart: unless-stopped
+    network_mode: "host"
+    restart: unless-stopped
