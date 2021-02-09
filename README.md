@@ -21,7 +21,7 @@ docker run \
 
 ### Sample docker-compose.yml
 
-This compose file starts the container using the host network. This is best if you want to connect other systems via syslog. This way you don't need to manually forward all ports from the host to the container every time you add a new event source. If you just want other containers to send logs you can remove the line "network_mode".
+This compose file starts the container using the host network. This is best if you want to connect other systems via syslog. This way you don't need to forward all ports from the host to the container every time you add a new event source. If you just want other containers to send logs you can remove the line "network_mode".
 
 ```
 ---
@@ -40,7 +40,7 @@ services:
     
 ### First start instructions
 
-After staring the collector for the first time you need to extract the token (Agent key) with
+After starting the collector for the first time you need to extract the token (Agent key) with
 
 `docker logs rapid7-collector`
 
@@ -49,14 +49,14 @@ https://docs.rapid7.com/insightidr/collector-installation-and-deployment/
 
 ### Size
 
-* Image Size: 188MB
+* Image size: 188MB
 * RAM (idle): 150MB
 
 ### Feedback & Improvments
 
 Please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collector/issues) or send me a [pull request](https://github.com/PhilippBehmer/docker_rapid7-collector/pulls).
 
-### How to create it on your own image
+### How to create the image on your own
 
 1. (Host) Create new container with Dockerfile
 
@@ -82,7 +82,7 @@ Please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collecto
 
 `docker exec -it collector /bin/bash`
 
-7. (Container) Start setup in container & accept dialogs and install to /opt/rapid7/collector
+7. (Container) Start setup in container, accept all dialogs and install to /opt/rapid7/collector
 
 `./InsightSetup-Linux64.sh`
 
