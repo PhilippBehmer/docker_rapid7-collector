@@ -1,0 +1,12 @@
+---
+version: "3.4"
+services:
+  rapid7-collector:
+    image: philippbehmer/docker_rapid7-collector:latest
+    container_name: rapid7-collector
+    volumes:
+      - ./data/logs/:/opt/rapid7/collector/logs/
+      - ./data/felix-cache/:/opt/rapid7/collector/felix-cache/
+      - ./data/data/spillover-directory/:/opt/rapid7/collector/spillover-directory
+  network_mode: "host"
+  restart: unless-stopped
