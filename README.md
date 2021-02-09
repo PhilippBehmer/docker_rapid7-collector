@@ -52,50 +52,56 @@ https://docs.rapid7.com/insightidr/collector-installation-and-deployment/
 * Image Size: 188MB
 * RAM (idle): 150MB
 
+### Feedback & Improvments
+
+Please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collector/issues) or send me a [pull request](https://github.com/PhilippBehmer/docker_rapid7-collector/pulls).
+
 ### How to create it on your own image
 
-1. Create new container with Dockerfile
+1. (Host) Create new container with Dockerfile
 
 `docker build -t collector .`
 
-2. Create container
+2. (Host) Create container
 
 `docker run -it --name collector collector /bin/bash`
 
-3. Download latest setup
+3. (Host) Download latest setup
 
 `wget https://s3.eu-central-1.amazonaws.com/public.razor-prod-0.eu-central-1.insight.rapid7.com/InsightSetup-Linux64.sh`
 
+4. (Host) Make it executable
+
 `chmod 700 InsightSetup-Linux64.sh`
 
-4. Copy setup into container
+5. (Host) Copy setup into container
 
 `docker cp InsightSetup-Linux64.sh collector:/opt/`
 
-5. Open second bash session in container
+6. (Host) Open second bash session in container
 
 `docker exec -it collector /bin/bash`
 
-6. Start setup in container & accept dialogs and install to /opt/rapid7/collector
+7. (Container) Start setup in container & accept dialogs and install to /opt/rapid7/collector
 
 `./InsightSetup-Linux64.sh`
 
-7. Directly after the file extraction step rename the collector executable
+8. (Container) Directly after the file extraction step rename the collector executable
 
 `mv collector collector.tmp`
 
-8. Wait for installation to finish and then rename the collector executable again
+9. (Container) Wait for installation to finish and then rename the collector executable again
 
 `mv collector.tmp collector`
 
-9. Remove setup file
+10. (Container) Remove setup file
 
 `rm /opt/InsightSetup-Linux64.sh`
 
-10. Set ENTRYPOINT, CMD and commit container to new image
+11. (Host) Set ENTRYPOINT, CMD and commit container to new image
 
 `docker commit --change='ENTRYPOINT ["/opt/rapid7/collector/collector"]' --change='CMD ["run"]' collector`
 
-11. Tag image
+12. (Host) Tag image
 
 `docker tag <image-id> philippbehmer/docker_rapid7-collector:latest`
