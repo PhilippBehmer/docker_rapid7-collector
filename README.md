@@ -54,7 +54,9 @@ https://docs.rapid7.com/insightidr/collector-installation-and-deployment/
 
 ### Feedback & Improvments
 
-Please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collector/issues) or send me a [pull request](https://github.com/PhilippBehmer/docker_rapid7-collector/pulls).
+You can give feedback on the [Rapid7 Discuss Board](https://discuss.rapid7.com/t/insightidr-collector-in-a-docker-container/3483).
+
+For bugs and improvements please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collector/issues) or send a [pull request](https://github.com/PhilippBehmer/docker_rapid7-collector/pulls).
 
 ### How to create the image on your own
 
