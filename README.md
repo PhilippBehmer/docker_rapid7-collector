@@ -45,6 +45,7 @@ After starting the collector for the first time you need to extract the token (A
 `docker logs rapid7-collector`
 
 and activate the collector in InsightIDR or InsightOps.
+
 https://docs.rapid7.com/insightidr/collector-installation-and-deployment/
 
 ### Size
