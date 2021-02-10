@@ -1,5 +1,5 @@
 
-# Rapid7 Insight-Platform Collector in a Docker Container
+# Rapid7 Insight-Platform Collector as a Docker Container (CaaC)
 
 ### Warning
 
@@ -54,7 +54,7 @@ https://docs.rapid7.com/insightidr/collector-installation-and-deployment/
 
 ### Feedback & Improvments
 
-You can give feedback on the [Rapid7 Discuss Board](https://discuss.rapid7.com/t/insightidr-collector-in-a-docker-container/3483).
+You can give feedback on the [Rapid7 Discuss Board](https://discuss.rapid7.com/t/insightidr-collector-as-a-docker-container/3483).
 
 For bugs and improvements please [create an issue](https://github.com/PhilippBehmer/docker_rapid7-collector/issues) or send a [pull request](https://github.com/PhilippBehmer/docker_rapid7-collector/pulls).
 
