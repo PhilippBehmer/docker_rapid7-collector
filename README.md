@@ -1,5 +1,8 @@
 
-# Rapid7 Insight-Platform Collector as a Docker Container (CaaC)
+# Rapid7 Collector as a Docker Container (CaaC)
+
+This describes how I created a Docker container for the [Rapid7 Insight-Platform Collector](https://docs.rapid7.com/insightidr/collector-overview/).
+You can use it for your personal lab or in case you want to receive logs directly from Docker containers.
 
 ## Warning
 
