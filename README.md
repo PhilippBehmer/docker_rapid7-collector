@@ -20,9 +20,9 @@ Please choose the tag of the region your Insight-Platform account was created.
 
 ## Sample
 
-This starts the container using the host network. This is best if you want to connect other systems via syslog. This way you don't need to forward all ports from the host to the container every time you add a new event source. If you just want other containers to send logs you can remove the line "network_mode" and use the docker internal network.
+This starts the container using the host network. This is best if you want to connect other systems via syslog. This way you don't need to forward all ports from the host to the container every time you add a new event source. If you just want other containers to send logs you can remove the line "network_mode" and use the docker internal network. The volumes mount host directories into the container to preserve logs, config and local cache.
 
-Please make sure you use the correct region tag!
+Please make sure you use the correct region tag and change the volume path to a valid directory on your Docker host!
 
 ### docker-compose.yml
 
@@ -34,9 +34,9 @@ services:
     image: philippbehmer/docker_rapid7-collector:us
     container_name: rapid7-collector
     volumes:
-      - ./data/logs/:/opt/rapid7/collector/logs/
-      - ./data/felix-cache/:/opt/rapid7/collector/felix-cache/
-      - ./data/data/spillover-directory/:/opt/rapid7/collector/spillover-directory
+      - /path/to/persistent/storage/logs/:/opt/rapid7/collector/logs/
+      - /path/to/persistent/storage/felix-cache/:/opt/rapid7/collector/felix-cache/
+      - /path/to/persistent/storage/spillover-directory/:/opt/rapid7/collector/spillover-directory
     network_mode: "host"
     restart: unless-stopped
 ```

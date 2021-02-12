@@ -5,8 +5,8 @@ services:
     image: philippbehmer/docker_rapid7-collector:us
     container_name: rapid7-collector
     volumes:
-      - ./data/logs/:/opt/rapid7/collector/logs/
-      - ./data/felix-cache/:/opt/rapid7/collector/felix-cache/
-      - ./data/data/spillover-directory/:/opt/rapid7/collector/spillover-directory
+      - /path/to/persistent/storage/logs/:/opt/rapid7/collector/logs/
+      - /path/to/persistent/storage/felix-cache/:/opt/rapid7/collector/felix-cache/
+      - /path/to/persistent/storage/spillover-directory/:/opt/rapid7/collector/spillover-directory
     network_mode: "host"
     restart: unless-stopped
