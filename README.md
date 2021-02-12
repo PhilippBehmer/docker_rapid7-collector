@@ -69,6 +69,12 @@ For bugs and improvements please [create an issue](https://github.com/PhilippBeh
 
 3. (Host) Download latest setup
 
+* US platform:
+
+`wget https://s3.amazonaws.com/com.rapid7.razor.public/InsightSetup-Linux64.sh`
+
+* EU platform:
+
 `wget https://s3.eu-central-1.amazonaws.com/public.razor-prod-0.eu-central-1.insight.rapid7.com/InsightSetup-Linux64.sh`
 
 4. (Host) Make it executable
