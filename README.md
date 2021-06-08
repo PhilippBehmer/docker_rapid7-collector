@@ -16,6 +16,8 @@ Please choose the tag of the region your Insight-Platform account was created.
 | Region | Image | 
 |--|--|
 | US | philippbehmer/docker_rapid7-collector:us |
+| US2 | philippbehmer/docker_rapid7-collector:us2 |
+| US3 | philippbehmer/docker_rapid7-collector:us3 |
 | EU | philippbehmer/docker_rapid7-collector:eu |
 | AP | philippbehmer/docker_rapid7-collector:ap |
 | CA | philippbehmer/docker_rapid7-collector:ca |
@@ -92,6 +94,8 @@ For bugs and improvements please [create an issue](https://github.com/PhilippBeh
 |Insight Platform Region| Command |
 |--|--|
 | US <br> (us-east-1) | `wget https://s3.amazonaws.com/com.rapid7.razor.public/InsightSetup-Linux64.sh` |
+| US2 <br> (us-east-2) | `wget https://s3-us-east-2.amazonaws.com/public.razor-prod-5.us-east-2.insight.rapid7.com/InsightSetup-Linux64.sh` |
+| US3 <br> (us-west-2) | `wget https://s3-us-west-2.amazonaws.com/public.razor-prod-6.us-west-2.insight.rapid7.com/InsightSetup-Linux64.sh` |
 | EU <br> (eu-central-1) | `wget https://s3.eu-central-1.amazonaws.com/public.razor-prod-0.eu-central-1.insight.rapid7.com/InsightSetup-Linux64.sh` |
 | AP <br> (ap-northeast-1) | `wget https://s3-ap-northeast-1.amazonaws.com/public.razor-prod-2.ap-northeast-1.insight.rapid7.com/InsightSetup-Linux64.sh` |
 | CA <br> (ca-central-1) | `wget https://s3.ca-central-1.amazonaws.com/public.razor-prod-3.ca-central-1.insight.rapid7.com/InsightSetup-Linux64.sh` |
