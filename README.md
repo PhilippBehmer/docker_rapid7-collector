@@ -148,4 +148,5 @@ This is the right time to execute the following command.
 **12. (Host) Delete temporary container and image**
 
 `docker rm collector`
+
 `docker rmi collector`
