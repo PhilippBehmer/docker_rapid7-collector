@@ -7,11 +7,11 @@ services:
     image: themolecularman/rapid7-collector
     volumes:
       # these paths are defined for Synology's Docker
+      # may not be necessary to put logs outside container
       - /volume1/docker/rapid7_collector/logs/:/opt/rapid7/collector/logs/
+      # this seems to be path that stores config that makes collector unique
       - /volume1/docker/rapid7_collector/felix-cache/:/opt/rapid7/collector/felix-cache/
+      # not sure what this directory is:
       - /volume1/docker/rapid7_collector/spillover-directory/:/opt/rapid7/collector/spillover-directory
     network_mode: "host"
     restart: unless-stopped
-    # ports:
-    #   - "7000-7019:7000-7019/tcp"
-    #   - "7000-7019:7000-7019/udp"
