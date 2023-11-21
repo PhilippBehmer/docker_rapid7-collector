@@ -24,7 +24,7 @@ log () {
 log "Start of script for image $DOCKER_REPO_NAME"
 export CONTAINER_RUNTIME_NAME="$DOCKER_REPO_NAME-runtime"
 
-set -e
+# set -e
 log "Checking syntax/lint issues before proceeding..."
 shellcheck --severity=error ./*.sh
 
@@ -33,7 +33,7 @@ hadolint --failure-threshold=warning --ignore DL3008 --ignore DL3002 Dockerfile
 log "Successfully passed syntax/lint checks..."
 
 # stop and kill any related containers
-set +e
+# set +e
 log "Stopping and deleting old versions of this container, leaving images alone..."
 docker stop "$CONTAINER_RUNTIME_NAME" && docker rm "$_"  &> /dev/null
 docker container prune --force &> /dev/null
@@ -77,5 +77,8 @@ log "Successfully finished building the docker image"
 # docker builder prune --all --force &> /dev/null
 
 docker-compose up -d && docker-compose exec discover /bin/bash
+
+# docker tag rapid7-collector rapid7-collector:latest
+# docker push themolecularman/rapid7-collector:latest
 
 log "$THIS_SCRIPT_NAME finished successfully!"
