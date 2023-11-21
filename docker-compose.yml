@@ -5,13 +5,13 @@ services:
     container_name: "idr-collector7"
     hostname: "idr-collector7.int.butters.me"
     image: themolecularman/rapid7-collector
-    container_name: rapid7-collector
     volumes:
+      # these paths are defined for Synology's Docker
       - /volume1/docker/rapid7_collector/logs/:/opt/rapid7/collector/logs/
       - /volume1/docker/rapid7_collector/felix-cache/:/opt/rapid7/collector/felix-cache/
       - /volume1/docker/rapid7_collector/spillover-directory/:/opt/rapid7/collector/spillover-directory
-    # network_mode: "host"
+    network_mode: "host"
     restart: unless-stopped
-    ports:
-      - "7000-7019:7000-7019/tcp"
-      - "7000-7019:7000-7019/udp"
+    # ports:
+    #   - "7000-7019:7000-7019/tcp"
+    #   - "7000-7019:7000-7019/udp"
