@@ -4,6 +4,8 @@
 
 [Docker Image hosted on DockerHub](https://hub.docker.com/r/themolecularman/rapid7-collector/tags)
 
+[activate the collector in InsightIDR or InsightOps](https://docs.rapid7.com/insightidr/collector-installation-and-deployment/).
+
 This describes how I created a Docker container for the [Rapid7 Insight-Platform Collector](https://docs.rapid7.com/insightidr/collector-overview/). The docker-compose.yml will build a container designed to be run on a Synology.
 You can use it for your personal lab or in case you want to receive logs directly from Docker containers.
 
@@ -18,13 +20,13 @@ The volumes mount host directories into the container to preserve logs, config a
 The default set of mount points are designed for deploying on a Synology.
 
 ## Use - deploying the container using my prebuilt Docker Hub image:
-1) Clone this repo onto your MacOS or Linux docker host.
-2) run the create collector script: ./create_collector.sh
-3) It will download the image from Docker Hub, start a new instance locally, and display the pairing key. NOTE: The Docker Hub repository image may not have the latest version of the Rapid7 Collector in it, but the collector will automatically update itself after pairing.
+1) run the create collector script: ./create_collector.sh
+2) It will download the image from Docker Hub, start a new instance locally, and display the pairing key. NOTE: The Docker Hub repository image may not have the latest version of the Rapid7 Collector in it, but the collector will automatically update itself after pairing.
 
 ## Use - Building the container to ensure you're using the latest Collector software
-1) Clone this repo onto your MacOS or Linux docker host.
-2) build the image from scratch: ./build_docker.sh
-3) It will build the image, start a new instance, and start a bash terminal session inside the new container
+1) build the image from scratch: ./build_docker.sh
+2) It will build the image, start a new instance, and start a bash terminal session inside the new container
 
-[activate the collector in InsightIDR or InsightOps](https://docs.rapid7.com/insightidr/collector-installation-and-deployment/).
+## Size / Stats:
+* Image size as of Nov 22, 2023: 190 MB
+* RAM utilization with 2 event sources: 291 MB
