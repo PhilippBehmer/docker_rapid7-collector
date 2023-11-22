@@ -2,6 +2,8 @@
 
 [Forked from Philipp Behmer's repo](https://github.com/PhilippBehmer/docker_rapid7-collector)
 
+[Docker Image hosted on DockerHub](https://hub.docker.com/r/themolecularman/rapid7-collector/tags)
+
 This describes how I created a Docker container for the [Rapid7 Insight-Platform Collector](https://docs.rapid7.com/insightidr/collector-overview/). The docker-compose.yml will build a container designed to be run on a Synology.
 You can use it for your personal lab or in case you want to receive logs directly from Docker containers.
 
