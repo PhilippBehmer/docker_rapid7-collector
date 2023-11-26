@@ -9,8 +9,14 @@
 This describes how I created a Docker container for the [Rapid7 Insight-Platform Collector](https://docs.rapid7.com/insightidr/collector-overview/). The docker-compose.yml will build a container designed to be run on a Synology.
 You can use it for your personal lab or in case you want to receive logs directly from Docker containers.
 
+## Fork Notes:
+* Modified Dockerfile to dynamically build the image using automated scripts. Running ./build_docker.sh will create an image that has the latest version of the R7 collector.
+* Added script.exp, which is an [expect script](https://linux.die.net/man/1/expect) that automatically answers all the interactive questions for the Bash install script that install the Rapid7 Collector
+* Added create_collector.sh, which is designed to deploy a Collector in a docker image on a Synology.
+* Added test-collector.sh which points to another repository of mine that will generate fake syslogs and send it to a collector so you can verify everything is working.
+
 ## Warning
-This is **NOT** supported by Rapid7! But it works :-)
+This Docker image/method is **NOT** officially supported by Rapid7! But it works :-)
 
 ## Networking
 This starts the container using the host network. This is best if you want to connect other systems via syslog. This way you don't need to forward all ports from the host to the container every time you add a new event source. If you just want other containers to send logs you can remove the line "network_mode" and use the docker internal network.
