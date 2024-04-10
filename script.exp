@@ -1,0 +1,93 @@
+#!/usr/bin/expect -f
+#
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+
+#
+# 2) differing output - Some programs produce different output each time
+# they run.  The "date" command is an obvious example.  Another is
+# ftp, if it produces throughput statistics at the end of a file
+# transfer.  If this causes a problem, delete these patterns or replace
+# them with wildcards.  An alternative is to use the -p flag (for
+# "prompt") which makes Expect only look for the last line of output
+# (i.e., the prompt).  The -P flag allows you to define a character to
+# toggle this mode off and on.
+#
+# Read the man page for more info.
+#
+# -Don
+
+
+set timeout -1
+spawn ./Collector_installer.sh
+match_max 100000
+expect -exact "Unpacking JRE ...\r
+Starting Installer ...\r
+\[?7h\r
+\r
+********************************************************************************\r
+Welcome to the Rapid7 Insight Platform Collector Installation Wizard\r
+********************************************************************************\r
+\r
+This wizard will help you install the Rapid7 Insight Platform Collector.\r
+\r
+Rapid7, LLC\r
+http://www.rapid7.com\r
+info@rapid7.com\r
++1.866.772.7437\r
++1.617.247.1717\r
+\r
+Do you want to continue?\r
+Yes \[y, Enter\], No \[n\]\r
+"
+send -- "y\r"
+expect -exact "y\r
+\r
+Gathering system information....\r
+\r
+\r
+********************************************************************************\r
+The installer is comparing your system settings to required settings\r
+********************************************************************************\r
+\r
+Software requirements\r
+\[Warn\] - Ubuntu 20.04 operating system was detected.\r
+	This Operating System is not officially supported.\r
+Installation should work correctly, but has not been tested.\r
+	https://www.rapid7.com/products/insightidr/system-requirements/\r
+\r
+\[Pass\] - SELinux is not active.\r
+\r
+Minimum requirements met. Select \"Yes\" to continue, \"No\" to cancel installation.\r
+Yes \[y, Enter\], No \[n\]\r
+"
+send -- "y\r"
+expect -exact "Keep reading the license \[1, Enter\], Acknowledge having read the license \[2\], Cancel \[3\]\r
+"
+send -- "2\r"
+expect -exact "2\r
+\r
+Do you accept the license?\r
+1. I accept the agreement. \[1\]\r
+2. I do not accept the agreement. \[2, Enter\]\r
+3. Cancel \[3\]\r
+"
+send -- "1\r"
+expect -exact "1\r
+Where should Rapid7 Insight Platform Collector be installed?\r
+\[/opt/rapid7/collector\]\r
+"
+send -- "/opt/rapid7/collector\r"
+expect -exact "/opt/rapid7/collector/agent-key/Agent_Key.html.\r
+\r
+\[Enter\]\r
+"
+send -- "\r"
+expect eof

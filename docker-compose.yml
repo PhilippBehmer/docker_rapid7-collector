@@ -1,12 +1,17 @@
 ---
-version: "3.4"
+version: "3.8"
 services:
   rapid7-collector:
-    image: philippbehmer/docker_rapid7-collector:us
-    container_name: rapid7-collector
+    container_name: "idr-collector7"
+    hostname: "idr-collector7.int.butters.me"
+    image: themolecularman/rapid7-collector
     volumes:
-      - /path/to/persistent/storage/logs/:/opt/rapid7/collector/logs/
-      - /path/to/persistent/storage/felix-cache/:/opt/rapid7/collector/felix-cache/
-      - /path/to/persistent/storage/spillover-directory/:/opt/rapid7/collector/spillover-directory
+      # these paths are defined for Synology's Docker
+      # may not be necessary to put logs outside container
+      - /volume1/docker/rapid7_collector/logs/:/opt/rapid7/collector/logs/
+      # this seems to be path that stores config that makes collector unique
+      - /volume1/docker/rapid7_collector/felix-cache/:/opt/rapid7/collector/felix-cache/
+      # not sure what this directory is:
+      - /volume1/docker/rapid7_collector/spillover-directory/:/opt/rapid7/collector/spillover-directory
     network_mode: "host"
     restart: unless-stopped
