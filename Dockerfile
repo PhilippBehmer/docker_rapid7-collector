@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-LABEL maintainer "Philipp Behmer - https://github.com/PhilippBehmer"
+LABEL maintainer="Philipp Behmer - https://github.com/PhilippBehmer"
 
 VOLUME ["/opt/rapid7/collector/logs/"]
 VOLUME ["/opt/rapid7/collector/felix-cache/"]
