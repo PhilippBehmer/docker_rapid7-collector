@@ -1,0 +1,99 @@
+#!/usr/bin/expect -f
+#
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+
+
+set timeout -1
+spawn /opt/InsightSetup-Linux64.sh
+match_max 100000
+expect -exact "Do you want to continue?\r
+Yes \[y, Enter\], No \[n\]\r"
+send -- "y\r"
+
+expect -exact "Minimum requirements met. Select \"Yes\" to continue, \"No\" to cancel installation.\r
+Yes \[y, Enter\], No \[n\]"
+send -- "y\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "\[Enter\]\r"
+send -- "\r"
+
+expect -exact "I accept the agreement.\r
+Yes \[1\], No \[2\]"
+send -- "1\r"
+
+
+expect -exact "Where should Rapid7 Insight Platform Collector be installed?\r
+\[/opt/rapid7/collector\]"
+send -- "\r"
+
+expect -exact "/opt/rapid7/collector/agent-key/Agent_Key.html.\r
+\r
+\[Enter\]\r
+"
+send -- "\r"
+expect eof
