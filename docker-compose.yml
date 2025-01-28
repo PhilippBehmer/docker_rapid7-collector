@@ -4,6 +4,7 @@ services:
   rapid7-collector:
     image: philippbehmer/docker_rapid7-collector:us
     container_name: rapid7-collector
+    hostname: collector.domain.com
     volumes:
       - /path/to/persistent/storage/logs/:/opt/rapid7/collector/logs/
       - /path/to/persistent/storage/felix-cache/:/opt/rapid7/collector/felix-cache/
