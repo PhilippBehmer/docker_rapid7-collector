@@ -1,5 +1,4 @@
 ---
-version: "3.4"
 services:
   rapid7-collector:
     image: philippbehmer/docker_rapid7-collector:us
