@@ -40,7 +40,6 @@ The collector requires an FQDN or it will create warning messages. This FQDN is 
 
 ```
 ---
-version: "3.4"
 services:
   rapid7-collector:
     image: philippbehmer/docker_rapid7-collector:us
